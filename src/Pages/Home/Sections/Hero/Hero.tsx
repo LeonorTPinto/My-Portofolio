@@ -6,14 +6,26 @@ import DownloadIcon from '@mui/icons-material/Download';
 import EmailIcon from '@mui/icons-material/Email';
 import StyledButton from '../../../../components/styledbutton/StyeledButton';
 import { AnimatedBackground } from '../../../../AnimatedBackground/AnimatedBackground';
+import { Padding } from '@mui/icons-material';
 
 // Styled components fora do componente Hero
- const StyleHero = styled("div")(({theme}) => ({
+// Styled components fora do componente Hero
+const StyleHero = styled("div")(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
   height: "100vh",
   display: "flex",
   alignItems: "center",
+  [theme.breakpoints.up("xs")]: {  // mobile
+  
+    paddingTop: "100px",
+  },
+  [theme.breakpoints.up("md")]: {  // computer
+   
+    paddingTop: "0px",
+  },
 }));
+
+
 
 const StyleImage = styled("img")(({ theme }) => ({
   width: "80%",
