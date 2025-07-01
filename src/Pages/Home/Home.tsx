@@ -1,3 +1,4 @@
+import NavBar from "../../components/styledbutton/NavBar/NavBar"
 import Hero from "./Sections/Hero/Hero"
 
 const Home= ()=> {
@@ -5,6 +6,7 @@ const Home= ()=> {
 
   return (
     <>
+    <NavBar/>
      <Hero/>
     </>
   )

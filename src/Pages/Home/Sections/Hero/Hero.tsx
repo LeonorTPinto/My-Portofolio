@@ -1,44 +1,67 @@
 import Grid from '@mui/material/Grid';
 import { styled } from "@mui/material/styles";
 import Leonor1 from "../../../../assets/Images/Leonor1.png";
-import { Button, Container, Typography } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 import DownloadIcon from '@mui/icons-material/Download';
 import EmailIcon from '@mui/icons-material/Email';
+import StyledButton from '../../../../components/styledbutton/StyeledButton';
+import { AnimatedBackground } from '../../../../AnimatedBackground/AnimatedBackground';
 
 // Styled components fora do componente Hero
-const StyleHero = styled("div")(() => ({
-  backgroundColor: "black",
+ const StyleHero = styled("div")(({theme}) => ({
+  backgroundColor: theme.palette.primary.main,
   height: "100vh",
+  display: "flex",
+  alignItems: "center",
 }));
 
-const StyleImage = styled("img")(() => ({
-  width: "100%",
+const StyleImage = styled("img")(({ theme }) => ({
+  width: "80%",
   borderRadius: "50%",
+  border:`3px solid ${theme.palette.primary.contrastText}`, 
 }));
 
 const Hero = () => {
+ 
   return (
     <StyleHero>
     <Container maxWidth="lg">
         <Grid container spacing={2}>
-          <Grid item xs={12} md={4}>
-            <StyleImage src={Leonor1} />
+          <Grid item xs={12} md={5}>
+            <Box position={"relative"} >
+              <Box position="absolute" width={"200%"} top={-100} right={0}>
+                <AnimatedBackground/>
+              </Box>
+              <Box position="relative" textAlign="center">
+              <StyleImage src={Leonor1} />
+              </Box>
+
+            </Box>
+            
           </Grid>
-          <Grid item xs={12} md={8}>
-            <Typography color="primary" variant='h1' textAlign="center">Leonor Pinto</Typography>
-            <Typography color="primary" variant='h2' textAlign="center">I'm a Software Engineer</Typography>
-            <Grid container display="flex" justifyContent="center" >
+          <Grid item xs={12} md={7}>
+            <Typography color="primary.contrastText" variant='h1' textAlign="center" pb={2}>Leonor Pinto</Typography>
+            <Typography color="primary.contrastText" variant='h2' textAlign="center">I'm a Software Engineer</Typography>
+            <Grid container display="flex" justifyContent="center" spacing={3} pb={3} >
               <Grid item xs={12} md={4} display="flex" justifyContent="center">
-                <Button>
+                <StyledButton>
                   <DownloadIcon/>
-                  Download CV
-                </Button>
+                  <Typography>
+
+                     Download CV
+                  </Typography>
+                 
+                </StyledButton>
               </Grid>
               <Grid item xs={12} md={4} display="flex" justifyContent="center">
-                <Button>
+                <StyledButton>
                   <EmailIcon/>
+                      <Typography>
+
                   Contact me
-                </Button>
+                      </Typography>
+
+                </StyledButton>
               </Grid>
             </Grid>
           </Grid>
