@@ -6,6 +6,7 @@ import { Css } from '@mui/icons-material'
 import theme from './theme.ts'
 import ReactDOM from 'react-dom/client'
 
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
 <React.StrictMode>
        <ThemeProvider theme={theme}>

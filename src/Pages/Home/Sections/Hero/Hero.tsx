@@ -5,11 +5,10 @@ import { Box, Container, Typography } from '@mui/material';
 import DownloadIcon from '@mui/icons-material/Download';
 import EmailIcon from '@mui/icons-material/Email';
 import StyledButton from '../../../../components/styledbutton/StyeledButton';
-import { AnimatedBackground } from '../../../../AnimatedBackground/AnimatedBackground';
-import { Padding } from '@mui/icons-material';
+import { AnimatedBackground } from '../../../../components/AnimatedBackground/AnimatedBackground';
+import PhoneIcon from '@mui/icons-material/Phone';
 
-// Styled components fora do componente Hero
-// Styled components fora do componente Hero
+
 const StyleHero = styled("div")(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
   height: "100vh",
@@ -56,7 +55,12 @@ const Hero = () => {
             <Typography color="primary.contrastText" variant='h2' textAlign="center">I'm a Software Engineer</Typography>
             <Grid container display="flex" justifyContent="center" spacing={3} pb={3} >
               <Grid item xs={12} md={4} display="flex" justifyContent="center">
-                <StyledButton>
+                <StyledButton onClick={()=> {
+                  const link= document.createElement('a');
+                  link.href = "/CV/Leonor Pinto.pdf";
+                  link.download = "Leonor Pinto.pdf";
+                  link.click();
+                }}>
                   <DownloadIcon/>
                   <Typography>
 
@@ -66,14 +70,23 @@ const Hero = () => {
                 </StyledButton>
               </Grid>
               <Grid item xs={12} md={4} display="flex" justifyContent="center">
-                <StyledButton>
+              <StyledButton onClick={() => {
+                  window.location.href = 'mailto:leonortpinto434@gmail.com?subject=Contato%20pelo%20Portfolio&body=Olá%20Leonor,%20gostaria%20de%20entrar%20em%20contato...';
+                }}>
                   <EmailIcon/>
-                      <Typography>
+                  <Typography>Contact me</Typography>
+                </StyledButton>
+              </Grid>
+              <Grid item xs={12} md={4} display="flex" justifyContent="center">
+                <StyledButton onClick={() => {
+                  window.open('https://wa.me/933823963?text=Olá%20Leonor,%20vi%20seu%20portfólio%20e%20gostaria%20de%20conversar', '_blank');
+                }}>
+                  <PhoneIcon/>
+                  <Typography>WhatsApp</Typography>
 
-                  Contact me
-                      </Typography>
 
                 </StyledButton>
+
               </Grid>
             </Grid>
           </Grid>
